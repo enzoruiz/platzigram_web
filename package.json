@@ -1,0 +1,26 @@
+{
+  "name": "platzigram",
+  "version": "0.1.0",
+  "description": "Comparte tus fotos con el resto de la comunidad",
+  "main": "server.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enzoruiz/platzigram_web.git"
+  },
+  "author": "Enzo Ruiz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enzoruiz/platzigram_web/issues"
+  },
+  "homepage": "https://github.com/enzoruiz/platzigram_web#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "materialize-css": "^0.100.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-rename": "^1.2.2"
+  }
+}
