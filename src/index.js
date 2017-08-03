@@ -1,5 +1,13 @@
-const numeros = [1, 2, 3, 4]
+const page = require('page')
 
-const sumado = numeros.map(num => num + 1)
+const main = document.getElementById('main-container')
 
-console.log(sumado)
+page('/', function (context, next){
+    main.innerHTML = 'HOME <a href="/signup">SIGNUP</a>'
+})
+
+page('/signup', function (context, next){
+    main.innerHTML = 'SIGNUP <a href="/">HOME</a>'
+})
+
+page()
