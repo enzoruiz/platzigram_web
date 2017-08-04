@@ -2,31 +2,50 @@ const page = require('page')
 const empty = require('empty-element')
 const template = require('./template')
 const title = require('title')
+const request = require('superagent')
+const header = require('../header')
+const axios = require('axios')
 
-page('/', function (context, next){
+page('/', header, loadPicturesFetch, function (context, next){
     title('Platzigram')
     const main = document.getElementById('main-container')
-    let pictures = [
-        {
-            user: {
-                username: 'enzo.ruiz',
-                avatar: 'http://trueautosite.com/wp-content/uploads/images/ferrari-enzo_1704.jpg'
-            },
-            url: 'http://trueautosite.com/wp-content/uploads/images/ferrari-enzo_1704.jpg',
-            likes: 0,
-            liked: false,
-            createdAt: new Date()
-        },
-        {
-            user: {
-                username: 'don.tomas',
-                avatar: 'https://i0.wp.com/www.mundoperro.net/wp-content/uploads/Cachorro-Labrador-6-meses.jpg'
-            },
-            url: 'https://i0.wp.com/www.mundoperro.net/wp-content/uploads/Cachorro-Labrador-6-meses.jpg',
-            likes: 2,
-            liked: true,
-            createdAt: new Date().setDate(new Date().getDate() - 10)
-        }
-    ]
-    empty(main).appendChild(template(pictures))
+
+    empty(main).appendChild(template(context.pictures))
 })
+
+// function loadPictures(context, next){
+//     request
+//         .get('/api/pictures')
+//         .end(function (err, res){
+//             if (err) return console.log(err)
+//
+//             context.pictures = res.body
+//             next()
+//         })
+// }
+
+// function loadPicturesAxios(context, next){
+//     axios
+//         .get('/api/pictures')
+//         .then(function (res){
+//             context.pictures = res.data
+//             next()
+//         })
+//         .catch(function (err){
+//             console.log(err)
+//         })
+// }
+
+function loadPicturesFetch(context, next){
+    fetch('/api/pictures')
+        .then(function (res){
+            return res.json()
+        })
+        .then(function (pictures){
+            context.pictures = pictures
+            next()
+        })
+        .catch(function (err){
+            console.log(err)
+        })
+}
