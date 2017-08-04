@@ -13,8 +13,8 @@ page('/', function (context, next){
                 avatar: 'http://trueautosite.com/wp-content/uploads/images/ferrari-enzo_1704.jpg'
             },
             url: 'http://trueautosite.com/wp-content/uploads/images/ferrari-enzo_1704.jpg',
-            likes: 598,
-            liked: true,
+            likes: 0,
+            liked: false,
             createdAt: new Date()
         },
         {
@@ -23,7 +23,7 @@ page('/', function (context, next){
                 avatar: 'https://i0.wp.com/www.mundoperro.net/wp-content/uploads/Cachorro-Labrador-6-meses.jpg'
             },
             url: 'https://i0.wp.com/www.mundoperro.net/wp-content/uploads/Cachorro-Labrador-6-meses.jpg',
-            likes: 250,
+            likes: 2,
             liked: true,
             createdAt: new Date().setDate(new Date().getDate() - 10)
         }

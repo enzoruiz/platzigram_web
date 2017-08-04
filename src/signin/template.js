@@ -1,5 +1,6 @@
 const yo = require('yo-yo')
 const landing = require('../landing')
+const translate = require('../translate')
 
 const signin_form = yo`<div class="col s12 m7">
     <div class="row">
@@ -7,21 +8,21 @@ const signin_form = yo`<div class="col s12 m7">
             <h1 class="platzigram">Platzigram</h1>
             <form class="signup-form" action="index.html" method="post">
                 <div class="section">
-                    <a href="#" class="btn btn-fb hide-on-small-only">Iniciar sesión con Facebook</a>
-                    <a href="#" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i> Iniciar sesión</a>
+                    <a href="#" class="btn btn-fb hide-on-small-only">${translate.message('signup.facebook')}</a>
+                    <a href="#" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i> ${translate.message('signup.text')}</a>
                 </div>
                 <div class="divider"></div>
                 <div class="section">
-                    <input type="text" name="username" placeholder="Usuario">
-                    <input type="password" name="password" placeholder="Contraseña">
-                    <button class="btn waves-effect waves-light btn-signup" type="submit">Inicia Sesion</button>
+                    <input type="text" name="username" placeholder="${translate.message('username')}">
+                    <input type="password" name="password" placeholder="${translate.message('password')}">
+                    <button class="btn waves-effect waves-light btn-signup" type="submit">${translate.message('signin')}</button>
                 </div>
             </form>
         </div>
     </div>
     <div class="row">
         <div class="login-box">
-            No tienes una cuenta? <a href="/signup">Registrate</a>
+            ${translate.message('signin.not-have-account')} <a href="/signup">${translate.message('signup.text')}</a>
         </div>
     </div>
 </div>`
