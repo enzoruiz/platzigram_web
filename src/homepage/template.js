@@ -9,12 +9,12 @@ module.exports = function (pictures){
         <div class="row">
             <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">
                 <form enctype="multipart/form-data" class="form-upload" id="formUpload" onsubmit=${onsubmit}>
-                    <div id="fileName" class="fileUpload btn btn-flat cyan">
+                    <div id="fileName" class="fileUpload btn waves-effect waves-light cyan">
                         <span><i class="fa fa-camera" aria-hidden="true"></i> ${translate('upload-picture')}</span>
                         <input name="picture" id="file" type="file" class="upload" onchange=${onchange} />
                     </div>
-                    <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">${translate('upload')}</button>
-                    <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=${cancel}><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <button id="btnUpload" type="submit" class="btn waves-effect waves-light cyan hide">${translate('upload')}</button>
+                    <button id="btnCancel" type="button" class="btn waves-effect waves-light red hide" onclick=${cancel}><i class="fa fa-times" aria-hidden="true"></i></button>
                 </form>
             </div>
         </div>

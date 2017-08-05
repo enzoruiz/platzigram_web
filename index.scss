@@ -1,11 +1,10 @@
 $secondary-color: #125688;
-
 @import 'node_modules/materialize-css/sass/materialize.scss';
 
 body {
-  background: #fafafa;
-  color: $secondary-color;
-  font-family: Montserrat;
+    background: #fafafa;
+    color: $secondary-color;
+    font-family: Montserrat;
 }
 
 .landing {
@@ -13,50 +12,50 @@ body {
 }
 
 .iphone {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 footer {
-  text-transform: uppercase;
-  font-size: 12px;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 .login-box,
 .signup-box {
-  background-color: white;
-  border: 1px solid #edeeee;
-  border-radius: 3px;
-  padding: 10px 0;
-  text-align: center;
+    background-color: white;
+    border: 1px solid #edeeee;
+    border-radius: 3px;
+    padding: 10px 0;
+    text-align: center;
 }
 
 .platzigram {
-  font-family: 'Oleo Script';
-  font-size: 42px;
-  color: $secondary-color !important;
+    font-family: 'Oleo Script';
+    font-size: 42px;
+    color: $secondary-color !important;
 }
 
 .signup-form {
-  width: 65%;
-  margin: auto;
+    width: 65%;
+    margin: auto;
 }
 
 .signup-form h2 {
-  color: #a5a7aa;
-  font-size: 1.2em;
+    color: #a5a7aa;
+    font-size: 1.2em;
 }
 
 .signup-form .btn.btn-fb {
-  background-color: #4090db;
-  font-size: .9em;
+    background-color: #4090db;
+    font-size: 0.9em;
 }
 
 .signup-form .btn.btn-fb:hover {
-  background-color: #2d6599;
+    background-color: #2d6599;
 }
 
 .signup-form .btn.btn-signup {
-  background-color: $secondary-color;
+    background-color: $secondary-color;
 }
 
 .header {
@@ -69,7 +68,6 @@ footer {
 .timeline {
     padding: 30px 0;
 }
-
 $avatar-size: 48px;
 
 .avatar {
@@ -110,7 +108,7 @@ $avatar-size: 48px;
     display: none;
 }
 
-.card.liked{
+.card.liked {
     .fa-heart {
         display: block;
     }
@@ -121,7 +119,8 @@ $avatar-size: 48px;
 }
 
 .form-upload {
-    span, button {
+    button,
+    span {
         color: white;
     }
 
@@ -142,6 +141,71 @@ $avatar-size: 48px;
             opacity: 0;
             filter: alpha(opacity=0);
         }
+    }
+}
 
+.loader,
+.loader:after,
+.loader:before {
+    background: #d12f2f;
+    -webkit-animation: load1 1s infinite ease-in-out;
+    animation: load1 1s infinite ease-in-out;
+    width: 1em;
+    height: 4em;
+}
+
+.loader {
+    color: #d12f2f;
+    text-indent: -9999em;
+    margin: 88px auto;
+    position: relative;
+    font-size: 11px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+.loader:after,
+.loader:before {
+    position: absolute;
+    top: 0;
+    content: '';
+}
+
+.loader:before {
+    left: -1.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.loader:after {
+    left: 1.5em;
+}
+@-webkit-keyframes load1 {
+    0%,
+    100%,
+    80% {
+        box-shadow: 0 0;
+        height: 4em;
+    }
+
+    40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+    }
+}
+@keyframes load1 {
+    0%,
+    100%,
+    80% {
+        box-shadow: 0 0;
+        height: 4em;
+    }
+
+    40% {
+        box-shadow: 0 -2em;
+        height: 5em;
     }
 }
