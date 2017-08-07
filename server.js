@@ -39,7 +39,7 @@ app.get('/signin', function(req, res) {
 app.get('/api/pictures', function(req, res) {
 	let pictures = [{
 			user: {
-				username: 'enzo.ruiz',
+				username: 'enzoruiz',
 				avatar: 'http://trueautosite.com/wp-content/uploads/images/ferrari-enzo_1704.jpg'
 			},
 			url: 'http://trueautosite.com/wp-content/uploads/images/ferrari-enzo_1704.jpg',
@@ -49,7 +49,7 @@ app.get('/api/pictures', function(req, res) {
 		},
 		{
 			user: {
-				username: 'don.tomas',
+				username: 'dontomas',
 				avatar: 'https://i0.wp.com/www.mundoperro.net/wp-content/uploads/Cachorro-Labrador-6-meses.jpg'
 			},
 			url: 'https://i0.wp.com/www.mundoperro.net/wp-content/uploads/Cachorro-Labrador-6-meses.jpg',
@@ -71,6 +71,39 @@ app.post('/api/pictures', function (req, res){
 		}
 		res.send(200, 'Imagen subida correctamente')
 	})
+})
+
+app.get('/api/user/:username', function (req, res){
+	const user = {
+		username: 'enzoruiz',
+		avatar: 'https://pbs.twimg.com/profile_images/623858611513503745/Q8ubLHOY_400x400.jpg',
+		pictures: [
+			{
+				id: 1,
+				src: 'https://www.dogalize.com/wp-content/uploads/2015/10/6595333a-0972-4112-b300-bc8a01822b94.jpg',
+				likes: 3
+			},
+			{
+				id: 2,
+				src: 'http://www.memegenerator.es/imagenes/memes/34/12788266.jpg',
+				likes: 4
+			},
+			{
+				id: 3,
+				src: 'https://supergracioso.com/wp-content/uploads/2015/08/selfies-perrunos-1.jpg',
+				likes: 1
+			}
+		]
+	}
+	res.send(user)
+})
+
+app.get('/:username', function (req, res){
+	res.render('index', {title: `Platzigram - ${req.params.username}`})
+})
+
+app.get('/:username/:id', function (req, res){
+	res.render('index', {title: `Platzigram - ${req.params.username}`})
 })
 
 app.listen(3000, function(err) {
