@@ -1,16 +1,39 @@
-const express = require('express')
-const multer = require('multer')
+const express = require('express');
+const multer = require('multer');
 const ext = require('file-extension');
+const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
 
-const storage = multer.diskStorage({
-	destination: function(req, file, cb) {
-		cb(null, './uploads')
+const config = require('./config');
+
+const s3 = new aws.S3({
+	accessKeyId: config.aws.accessKey,
+	secretAccessKey: config.aws.secretKey,
+})
+
+const storage = multerS3({
+	s3: s3,
+	bucket: 'platzigram-curso-enzo',
+	acl: 'public-read',
+	metadata: function (req, file, cb){
+		cb(null, { fieldName: file.fieldname })
 	},
-	filename: function(req, file, cb) {
+	key: function (req, file, cb){
 		cb(null, Date.now() + '.' + ext(file.originalname))
 	}
 })
 
+// STORAGE EN LOCAL
+// const storage = multer.diskStorage({
+// 	destination: function(req, file, cb) {
+// 		cb(null, './uploads')
+// 	},
+// 	cb(null, Date.now() + '.' + ext(file.originalname))
+// 	filename: function(req, file, cb) {
+// 	}
+// })
+
+// MIDDLEWARE PARA EL STORAGE
 const upload = multer({'storage': storage}).single('picture')
 
 const app = express()
